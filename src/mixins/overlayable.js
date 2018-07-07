@@ -25,7 +25,7 @@ export default {
   },
 
   methods: {
-    genOverlay () {
+    genOverlay (overlayClass = '') {
       // If fn is called and timeout is active
       // or overlay already exists
       // cancel removal of overlay and re-add active
@@ -40,7 +40,7 @@ export default {
       }
 
       this.overlay = document.createElement('div')
-      this.overlay.className = 'v-overlay'
+      this.overlay.className = `v-overlay ${overlayClass}`
 
       if (this.absolute) this.overlay.className += ' v-overlay--absolute'
 

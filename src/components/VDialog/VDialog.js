@@ -140,7 +140,8 @@ export default {
       return getZIndex(this.$refs.content) >= this.getMaxZIndex()
     },
     show () {
-      !this.fullscreen && !this.hideOverlay && this.genOverlay()
+      const overlayClass = this.persistent ? 'v-overlay--transparent' : ''
+      !this.fullscreen && !this.hideOverlay && this.genOverlay(overlayClass)
       this.fullscreen && this.hideScroll()
       this.$refs.content.focus()
       this.$listeners.keydown && this.bind()
